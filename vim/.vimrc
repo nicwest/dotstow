@@ -8,6 +8,9 @@ Plug 'jeetsukumaran/vim-filebeagle'
 Plug 'fatih/vim-go'
 Plug 'wellle/targets.vim'
 Plug 'SirVer/ultisnips'
+Plug 'nicwest/QQ.vim'
+Plug 'tpope/vim-fireplace'
+Plug 'tpope/vim-projectionist'
 call plug#end()
 " }}}
 " {{{ Settings
