@@ -5,9 +5,10 @@ syntax on
 " {{{ Plugins 
 call plug#begin('~/.vim/plugged')
 Plug 'jeetsukumaran/vim-filebeagle'
-Plug 'fatih/vim-go'
 Plug 'wellle/targets.vim'
 Plug 'SirVer/ultisnips'
+Plug 'fatih/vim-go'
+Plug 'tpope/vim-fireplace'
 call plug#end()
 " }}}
 " {{{ Settings
