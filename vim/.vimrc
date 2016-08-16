@@ -12,6 +12,9 @@ Plug 'nicwest/QQ.vim'
 Plug 'tpope/vim-fireplace'
 Plug 'tpope/vim-projectionist'
 call plug#end()
+
+let g:filebeagle_check_gitignore = 1
+
 " }}}
 " {{{ Settings
 set backspace=indent,eol,start
