@@ -36,6 +36,7 @@ set showmode
 set novisualbell
 set nowrap
 set noswapfile
+set clipboard=unnamed
 " }}}
 " {{{ Colors
 set background=dark
@@ -48,6 +49,13 @@ noremap $ L
 noremap ^ H
 
 noremap Q @q
+
+nnoremap <C-h> <C-w>h
+nnoremap <C-j> <C-w>j
+nnoremap <C-k> <C-w>k
+nnoremap <C-l> <C-w>l
+
+
 " }}}
 " {{{ Leader
 let mapleader = "\<Space>"
