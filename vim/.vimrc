@@ -7,10 +7,15 @@ call plug#begin('~/.vim/plugged')
 Plug 'jeetsukumaran/vim-filebeagle'
 Plug 'wellle/targets.vim'
 Plug 'SirVer/ultisnips'
+Plug 'scrooloose/syntastic'
 Plug 'nicwest/QQ.vim'
+Plug 'jpythonfold.vim'
+Plug 'tpope/vim-surround'
 Plug 'fatih/vim-go'
 Plug 'tpope/vim-fireplace'
 Plug 'tpope/vim-projectionist'
+Plug 'haya14busa/incsearch.vim'
+Plug 'scrooloose/nerdcommenter'
 call plug#end()
 
 let g:filebeagle_check_gitignore = 1
@@ -82,4 +87,7 @@ map <leader>so :setlocal spell!<cr>
 map <leader>sa zg
 map <leader>ss z=
 map <leader>sg 1z=
+" }}}
+" {{{ Autocommands
+autocmd FileType python source ~/.vim/plugged/jpythonfold.vim/syntax/jpythonfold.vim
 " }}}
