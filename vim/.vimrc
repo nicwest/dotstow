@@ -4,21 +4,23 @@ syntax on
 
 " {{{ Plugins 
 call plug#begin('~/.vim/plugged')
-Plug 'jeetsukumaran/vim-filebeagle'
-Plug 'wellle/targets.vim'
 Plug 'SirVer/ultisnips'
-Plug 'scrooloose/syntastic'
-Plug 'nicwest/QQ.vim'
-Plug 'jpythonfold.vim'
-Plug 'tpope/vim-surround'
 Plug 'fatih/vim-go'
+Plug 'haya14busa/incsearch.vim'
+Plug 'jeetsukumaran/vim-filebeagle'
+Plug 'jpythonfold.vim'
+Plug 'scrooloose/nerdcommenter'
+Plug 'scrooloose/syntastic'
 Plug 'tpope/vim-fireplace'
 Plug 'tpope/vim-projectionist'
-Plug 'haya14busa/incsearch.vim'
-Plug 'scrooloose/nerdcommenter'
+Plug 'tpope/vim-surround'
+Plug 'wellle/targets.vim'
 call plug#end()
 
 let g:filebeagle_check_gitignore = 1
+
+let g:syntastic_python_checkers = ['flake8']
+let g:syntastic_python_flake8_args='--ignore=E501,E225,E226,E265'
 
 " }}}
 " {{{ Settings
@@ -59,6 +61,25 @@ nnoremap <C-h> <C-w>h
 nnoremap <C-j> <C-w>j
 nnoremap <C-k> <C-w>k
 nnoremap <C-l> <C-w>l
+
+vnoremap < <V`]
+vnoremap > >V`]
+
+nnoremap <tab> %
+vnoremap <tab> %
+
+nnoremap Y y$
+
+map /  <Plug>(incsearch-forward)
+map ?  <Plug>(incsearch-backward)
+map g/ <Plug>(incsearch-stay)
+
+nnoremap x "_x
+xnoremap x "_x
+
+nnoremap cx xp 
+
+nnoremap <c-b> :buffers<CR>:b 
 
 
 " }}}
