@@ -1,5 +1,6 @@
 [options]
-font = Inconsolata for Powerline 11
+#font = Inconsolata for Powerline 11
+font = Inconsolata 11
 scroll_on_output = false
 scroll_on_keystroke = true
 audible_bell = false

@@ -8,6 +8,7 @@ Plug 'SirVer/ultisnips'
 Plug 'fatih/vim-go'
 Plug 'haya14busa/incsearch.vim'
 Plug 'jeetsukumaran/vim-filebeagle'
+Plug 'luochen1990/rainbow'
 Plug 'jpythonfold.vim'
 Plug 'scrooloose/nerdcommenter'
 Plug 'scrooloose/syntastic'
@@ -21,6 +22,8 @@ let g:filebeagle_check_gitignore = 1
 
 let g:syntastic_python_checkers = ['flake8']
 let g:syntastic_python_flake8_args='--ignore=E501,E225,E226,E265'
+
+let g:rainbow_active = 1
 
 " }}}
 " {{{ Settings
@@ -65,8 +68,7 @@ nnoremap <C-l> <C-w>l
 vnoremap < <V`]
 vnoremap > >V`]
 
-nnoremap <tab> %
-vnoremap <tab> %
+noremap <tab> %
 
 nnoremap Y y$
 
