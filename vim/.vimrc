@@ -15,12 +15,18 @@ Plug 'tpope/vim-fireplace'
 Plug 'tpope/vim-projectionist'
 Plug 'tpope/vim-surround'
 Plug 'wellle/targets.vim'
+Plug '/home/nic/sideprojects/vim-http'
 call plug#end()
 
 let g:filebeagle_check_gitignore = 1
 
 let g:syntastic_python_checkers = ['flake8']
 let g:syntastic_python_flake8_args='--ignore=E501,E225,E226,E265'
+
+let g:UltiSnipsSnippetsDir = "~/.vim/snippets/"
+let g:UltiSnipsExpandTrigger="<c-k>"
+let g:UltiSnipsJumpForwardTrigger="<c-k>"
+let g:UltiSnipsJumpBackwardTrigger="<s-c-j>"
 
 " }}}
 " {{{ Settings
@@ -111,4 +117,19 @@ map <leader>sg 1z=
 " }}}
 " {{{ Autocommands
 autocmd FileType python source ~/.vim/plugged/jpythonfold.vim/syntax/jpythonfold.vim
+
+autocmd Filetype html,htmldjango setlocal ts=2 sts=2 sw=2
+autocmd Filetype javascript setlocal ts=2 sts=2 sw=2
+autocmd Filetype css,scss setlocal ts=2 sts=2 sw=2
+autocmd Filetype vim setlocal ts=2 sts=2 sw=2
+autocmd Filetype yaml,yml setlocal ts=2 sts=2 sw=2
+autocmd Filetype ruby setlocal ts=2 sts=2 sw=2
+
+au BufRead *.md setlocal spell spelllang=en_gb
+au BufRead *.markdown setlocal spell spelllang=en_gb
+autocmd BufNewFile,BufRead *.md set filetype=markdown
+autocmd Filetype markdown setlocal tw=80
+autocmd Filetype markdown setlocal wm=4
+
+autocmd BufNewFile,BufRead *.cljx set ft=clojure
 " }}}
