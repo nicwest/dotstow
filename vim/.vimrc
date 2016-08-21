@@ -8,6 +8,7 @@ Plug 'SirVer/ultisnips'
 Plug 'fatih/vim-go'
 Plug 'haya14busa/incsearch.vim'
 Plug 'jeetsukumaran/vim-filebeagle'
+Plug 'luochen1990/rainbow'
 Plug 'jpythonfold.vim'
 Plug 'scrooloose/nerdcommenter'
 Plug 'scrooloose/syntastic'
@@ -27,6 +28,8 @@ let g:UltiSnipsSnippetsDir = "~/.vim/snippets/"
 let g:UltiSnipsExpandTrigger="<c-k>"
 let g:UltiSnipsJumpForwardTrigger="<c-k>"
 let g:UltiSnipsJumpBackwardTrigger="<s-c-j>"
+
+let g:rainbow_active = 1
 
 " }}}
 " {{{ Settings
@@ -71,8 +74,7 @@ nnoremap <C-l> <C-w>l
 vnoremap < <V`]
 vnoremap > >V`]
 
-nnoremap <tab> %
-vnoremap <tab> %
+noremap <tab> %
 
 nnoremap Y y$
 
