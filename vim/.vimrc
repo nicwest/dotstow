@@ -4,12 +4,15 @@ syntax on
 
 " {{{ Plugins 
 call plug#begin('~/.vim/plugged')
+Plug 'Raimondi/delimitMate'
 Plug 'SirVer/ultisnips'
 Plug 'fatih/vim-go'
+Plug 'guns/vim-slamhound'
 Plug 'haya14busa/incsearch.vim'
 Plug 'jeetsukumaran/vim-filebeagle'
-Plug 'luochen1990/rainbow'
 Plug 'jpythonfold.vim'
+Plug 'luochen1990/rainbow'
+Plug 'nicwest/template-bucket'
 Plug 'scrooloose/nerdcommenter'
 Plug 'scrooloose/syntastic'
 Plug 'tpope/vim-fireplace'
@@ -23,6 +26,8 @@ let g:filebeagle_check_gitignore = 1
 
 let g:syntastic_python_checkers = ['flake8']
 let g:syntastic_python_flake8_args='--ignore=E501,E225,E226,E265'
+let g:syntastic_go_checkers = ['go', 'golint', 'govet']
+let g:syntastic_mode_map = { 'mode': 'active' }
 
 let g:UltiSnipsSnippetsDir = "~/.vim/snippets/"
 let g:UltiSnipsExpandTrigger="<c-k>"
@@ -47,11 +52,15 @@ set shiftwidth=4
 set softtabstop=4
 set expandtab
 set cursorline
+set encoding=utf-8
 set colorcolumn=80
 set showmode
+set showmatch
+set hlsearch
 set novisualbell
 set nowrap
 set noswapfile
+set laststatus=2
 set clipboard=unnamed
 " }}}
 " {{{ Colors
