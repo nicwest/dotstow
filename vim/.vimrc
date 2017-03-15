@@ -6,7 +6,9 @@ syntax on
 call plug#begin('~/.vim/plugged')
 Plug 'Raimondi/delimitMate'
 Plug 'SirVer/ultisnips'
+Plug 'elixir-lang/vim-elixir'
 Plug 'fatih/vim-go'
+Plug 'godlygeek/tabular'
 Plug 'guns/vim-slamhound'
 Plug 'haya14busa/incsearch.vim'
 Plug 'jeetsukumaran/vim-filebeagle'
@@ -15,10 +17,12 @@ Plug 'luochen1990/rainbow'
 Plug 'nicwest/template-bucket'
 Plug 'scrooloose/nerdcommenter'
 Plug 'scrooloose/syntastic'
+Plug 'slashmili/alchemist.vim'
 Plug 'tpope/vim-fireplace'
 Plug 'tpope/vim-projectionist'
 Plug 'tpope/vim-surround'
 Plug 'wellle/targets.vim'
+Plug 'vim-jp/vital.vim'
 Plug '/home/nic/sideprojects/vim-http'
 call plug#end()
 
@@ -28,6 +32,8 @@ let g:syntastic_python_checkers = ['flake8']
 let g:syntastic_python_flake8_args='--ignore=E501,E225,E226,E265'
 let g:syntastic_go_checkers = ['go', 'golint', 'govet']
 let g:syntastic_mode_map = { 'mode': 'active' }
+let g:syntastic_elixir_checkers = ['elixir']
+let g:syntastic_enable_elixir_checker = 1
 
 let g:UltiSnipsSnippetsDir = "~/.vim/snippets/"
 let g:UltiSnipsExpandTrigger="<c-k>"

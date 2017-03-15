@@ -4,16 +4,16 @@ function fish_mode_prompt --description "Displays the current mode"
     switch $fish_bind_mode
       case default
         set_color --bold red
-        echo '●'
+        echo '◤'
       case insert
         set_color --bold green
-        echo '●'
+        echo '◤'
       case replace-one
         set_color --bold cyan
-        echo '●'
+        echo '◤'
       case visual
         set_color --bold magenta
-        echo '●'
+        echo '◤'
     end
     set_color normal
     echo -n ' '

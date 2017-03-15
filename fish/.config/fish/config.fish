@@ -1,5 +1,5 @@
 
-set -x PATH /home/nic/bin $PATH ~/go/bin
+set -x PATH $HOME/bin $HOME/.gem/ruby/2.4.0/bin $HOME/go/bin $PATH 
 set -x EDITOR vim
 set -x GOPATH ~/go
 set -x TERM 'xterm-256color'

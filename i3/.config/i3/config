@@ -46,6 +46,8 @@ bindsym $mod+0 workspace 10
 bindsym $mod+b workspace B
 bindsym $mod+s workspace S
 bindsym $mod+m workspace M
+bindsym $mod+t workspace T
+bindsym $mod+p workspace P
 
 
 # move focused container to workspace
@@ -63,6 +65,8 @@ bindsym $mod+Shift+0 move container to workspace 10
 bindsym $mod+Shift+b move container to workspace B
 bindsym $mod+Shift+s move container to workspace S
 bindsym $mod+Shift+m move container to workspace M
+bindsym $mod+Shift+t move container to workspace T
+bindsym $mod+Shift+p move container to workspace P
 
 bindsym $mod+Shift+c reload
 bindsym $mod+Shift+r restart
