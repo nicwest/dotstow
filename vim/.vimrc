@@ -6,6 +6,7 @@ syntax on
 call plug#begin('~/.vim/plugged')
 Plug 'Raimondi/delimitMate'
 Plug 'SirVer/ultisnips'
+"Plug 'dhruvasagar/vim-table-mode'
 Plug 'elixir-lang/vim-elixir'
 Plug 'fatih/vim-go'
 Plug 'godlygeek/tabular'
@@ -21,6 +22,8 @@ Plug 'slashmili/alchemist.vim'
 Plug 'tpope/vim-fireplace'
 Plug 'tpope/vim-projectionist'
 Plug 'tpope/vim-surround'
+Plug 'tpope/vim-repeat'
+Plug 'tpope/vim-fugitive'
 Plug 'wellle/targets.vim'
 Plug 'vim-jp/vital.vim'
 Plug '/home/nic/sideprojects/vim-http'
@@ -41,6 +44,8 @@ let g:UltiSnipsJumpForwardTrigger="<c-k>"
 let g:UltiSnipsJumpBackwardTrigger="<s-c-j>"
 
 let g:rainbow_active = 1
+let g:table_mode_corner_corner='+'
+let g:table_mode_header_fillchar='='
 
 " }}}
 " {{{ Settings
@@ -145,8 +150,23 @@ autocmd Filetype ruby setlocal ts=2 sts=2 sw=2
 au BufRead *.md setlocal spell spelllang=en_gb
 au BufRead *.markdown setlocal spell spelllang=en_gb
 autocmd BufNewFile,BufRead *.md set filetype=markdown
-autocmd Filetype markdown setlocal tw=80
-autocmd Filetype markdown setlocal wm=4
+autocmd Filetype markdown,rst setlocal tw=78
+autocmd Filetype markdown,rst setlocal wm=4
 
 autocmd BufNewFile,BufRead *.cljx set ft=clojure
+" }}}
+" {{{ Commands
+function! s:set_json_header() abort
+  call http#set_header('Content-Type', 'application/json')
+endfunction
+
+function! s:clean_personal_stuff() abort
+  call http#remove_header('Cookie')
+  call http#remove_header('Accept')
+  call http#remove_header('User-Agent')
+  call http#remove_header('Accept-Language')
+endfunction 
+
+command! JSON call s:set_json_header()
+command! Anon call s:clean_personal_stuff()
 " }}}
