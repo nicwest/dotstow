@@ -1,6 +1,4 @@
 set folder = "~/Maildir/"
-folder-hook '~/Maildir/work' 'source ~/.mutt/account.work'
-folder-hook '~/Maildir/liveerrors' 'source ~/.mutt/account.liveerrors'
 set spoolfile = "+work/INBOX"
 set record = "+work/Sent"
 set postponed = "+work/Drafts"
@@ -67,3 +65,6 @@ bind index <right> "sidebar-open"
 set alias_file          = ~/.mutt/aliases     # Go there for aliases
 source ~/.mutt/colors.muttrc
 source ~/.mutt/aliases
+source ~/.mutt/mailboxes
+folder-hook '~/Maildir/work' 'source ~/.mutt/account.work'
+folder-hook '~/Maildir/liveerrors' 'source ~/.mutt/account.liveerrors'

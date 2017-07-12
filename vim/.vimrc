@@ -146,6 +146,8 @@ autocmd Filetype css,scss setlocal ts=2 sts=2 sw=2
 autocmd Filetype vim setlocal ts=2 sts=2 sw=2
 autocmd Filetype yaml,yml setlocal ts=2 sts=2 sw=2
 autocmd Filetype ruby setlocal ts=2 sts=2 sw=2
+autocmd FileType objc,objcpp setlocal noexpandtab ts=8 sts=8 sw=8  
+
 
 au BufRead *.md setlocal spell spelllang=en_gb
 au BufRead *.markdown setlocal spell spelllang=en_gb
