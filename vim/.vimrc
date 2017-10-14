@@ -27,7 +27,6 @@ Plug '/home/nic/sideprojects/vim-spacey'
 Plug '/home/nic/sideprojects/template-bucket'
 Plug '/home/nic/sideprojects/vim-generate'
 Plug '/home/nic/sideprojects/vim-camelsnek'
-Plug '/home/nic/sideprojects/vim-workman'
 call plug#end()
 
 let g:filebeagle_check_gitignore = 1
