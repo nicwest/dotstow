@@ -12,7 +12,7 @@ scrollback_lines = 10000
 search_wrap = false
 cursor_blink = on
 cursor_shape = block
-browser = firefox
+browser = qutebrowser
 filter_unmatched_urls = true
 
 [colors]
