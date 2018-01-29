@@ -10,9 +10,9 @@ Plug 'guns/vim-slamhound'
 Plug 'haya14busa/incsearch.vim'
 Plug 'jeetsukumaran/vim-filebeagle'
 Plug 'jpythonfold.vim'
+Plug 'junegunn/vader.vim'
 Plug 'luochen1990/rainbow'
 Plug 'scrooloose/nerdcommenter'
-Plug 'scrooloose/syntastic'
 Plug 'tpope/vim-fireplace'
 Plug 'tpope/vim-projectionist'
 Plug 'tpope/vim-scriptease'
@@ -20,8 +20,10 @@ Plug 'tpope/vim-surround'
 Plug 'tpope/vim-repeat'
 Plug 'tpope/vim-unimpaired'
 Plug 'wellle/targets.vim'
+"Plug 'w0rp/ale'
 Plug 'vim-jp/vital.vim'
 Plug '/home/nic/src/vim-filebeagle'
+Plug '/home/nic/src/ale'
 Plug '/home/nic/sideprojects/vim-http'
 Plug '/home/nic/sideprojects/vim-spacey'
 Plug '/home/nic/sideprojects/template-bucket'
@@ -37,6 +39,10 @@ let g:syntastic_go_checkers = ['go', 'golint', 'govet']
 let g:syntastic_mode_map = { 'mode': 'active' }
 let g:syntastic_elixir_checkers = ['elixir']
 let g:syntastic_enable_elixir_checker = 1
+
+let g:ale_linters = {
+      \'go': ['go build', 'golint', 'govet']
+      \}
 
 let g:rainbow_active = 1
 
@@ -188,13 +194,14 @@ autocmd Filetype ruby setlocal ts=2 sts=2 sw=2
 autocmd FileType objc,objcpp setlocal noexpandtab ts=8 sts=8 sw=8  
 
 
-au BufRead *.md setlocal spell spelllang=en_gb
-au BufRead *.markdown setlocal spell spelllang=en_gb
+autocmd BufRead *.md setlocal spell spelllang=en_gb
+autocmd BufRead *.markdown setlocal spell spelllang=en_gb
 autocmd BufNewFile,BufRead *.md set filetype=markdown
 autocmd Filetype markdown,rst setlocal tw=78
 autocmd Filetype markdown,rst setlocal wm=4
 
 autocmd BufNewFile,BufRead *.cljx set ft=clojure
+autocmd BufNewFile,BufRead *.joke set ft=clojure
 
 " }}}
 " {{{ Commands
@@ -209,16 +216,22 @@ function! s:clean_personal_stuff() abort
   call http#remove_header('Accept-Language')
 endfunction 
 
+function! s:add_compression() abort
+  call http#set_header('Accept-Encoding', 'deflate, gzip')
+  let g:vim_http_additional_curl_args = '--compressed'
+endfunction
+
 function! s:imports() abort
-  if &ft == 'go'
+  if &filetype ==# 'go'
     GoImports
   endif
-  if &ft == 'clojure'
+  if &filetype ==# 'clojure'
     Slamhound
   endif
 endfunction
 
 command! JSON call s:set_json_header()
 command! Anon call s:clean_personal_stuff()
+command! Compression call s:add_compression()
 command! Imports call s:imports()
 " }}}
