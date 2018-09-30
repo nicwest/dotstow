@@ -1,2 +1,2 @@
 bind generic y !@sh -c "echo -n %(commit) | xsel --input"
-set main-view = id:true date:short author:true commit-title:true,graph=true,refs=true
+set main-view = id:true date:custom author:true commit-title:true,graph=true,refs=true
