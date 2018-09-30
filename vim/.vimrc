@@ -75,15 +75,15 @@ set laststatus=2
 set clipboard=unnamed
 " 
 "  Colors
-set background=light
-colorscheme plain
-highlight SpellBad   ctermfg=15 ctermbg=1
-highlight SpellCap   ctermfg=15 ctermbg=9
-highlight SpellRare  ctermfg=15 ctermbg=10
-highlight SpellLocal ctermfg=15 ctermbg=2
-highlight CursorLine ctermfg=0  ctermbg=251
-"set background=dark
-"colorscheme hybrid
+"set background=light
+"colorscheme plain
+"highlight SpellBad   ctermfg=15 ctermbg=1
+"highlight SpellCap   ctermfg=15 ctermbg=9
+"highlight SpellRare  ctermfg=15 ctermbg=10
+"highlight SpellLocal ctermfg=15 ctermbg=2
+"highlight CursorLine ctermfg=0  ctermbg=251
+set background=dark
+colorscheme hybrid
 " 
 "  Keybinds
 noremap L $
