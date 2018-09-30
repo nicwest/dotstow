@@ -68,3 +68,4 @@ source ~/.mutt/aliases
 source ~/.mutt/mailboxes
 folder-hook '~/Maildir/work' 'source ~/.mutt/account.work'
 folder-hook '~/Maildir/liveerrors' 'source ~/.mutt/account.liveerrors'
+folder-hook '~/Maildir/personal' 'source ~/.mutt/account.personal'

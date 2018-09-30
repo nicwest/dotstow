@@ -16,41 +16,74 @@ browser = firefox
 filter_unmatched_urls = true
 
 [colors]
-# special
-foreground      = #c5c8c6
-foreground_bold = #c5c8c6
-cursor          = #c5c8c6
-background      = #1d1f21
 
-# black
-color0  = #282a2e
-color8  = #373b41
+# 16 color space
 
-# red
-color1  = #a54242
-color9  = #cc6666
+foreground = #222222
+foreground_bold = #000000
+background = #F1F1F1
 
-# green
-color2  = #8c9440
-color10 = #b5bd68
+color0  = #222222
+color8  = #333333
 
-# yellow
-color3  = #de935f
-color11 = #f0c674
+color1  = #C30771
+color9  = #E32791
 
-# blue
-color4  = #5f819d
-color12 = #81a2be
+color2  = #10A778
+color10 = #5FD7A7
 
-# magenta
-color5  = #85678f
-color13 = #b294bb
+color3  = #A89C14
+color11 = #F3E430
 
-# cyan
-color6  = #5e8d87
-color14 = #8abeb7
+color4  = #008EC4
+color12 = #20BBFC
 
-# white
-color7  = #707880
-color15 = #c5c8c6
+color5  = #523C79
+color13 = #6855DE
+
+color6  = #20A5BA
+color14 = #4FB8CC
+
+color7  = #999999
+color15 = #F1F1F1
+
+ highlight = #B6D6FD
+
+## special
+#foreground      = #c5c8c6
+#foreground_bold = #c5c8c6
+#cursor          = #c5c8c6
+#background      = #1d1f21
+#
+## black
+#color0  = #282a2e
+#color8  = #373b41
+#
+## red
+#color1  = #a54242
+#color9  = #cc6666
+#
+## green
+#color2  = #8c9440
+#color10 = #b5bd68
+#
+## yellow
+#color3  = #de935f
+#color11 = #f0c674
+#
+## blue
+#color4  = #5f819d
+#color12 = #81a2be
+#
+## magenta
+#color5  = #85678f
+#color13 = #b294bb
+#
+## cyan
+#color6  = #5e8d87
+#color14 = #8abeb7
+#
+## white
+#color7  = #707880
+#color15 = #c5c8c6
 

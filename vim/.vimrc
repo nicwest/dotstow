@@ -2,14 +2,15 @@
 filetype plugin indent on
 syntax on
 
-" {{{ Plugins 
+"  Plugins 
 call plug#begin('~/.vim/plugged')
+Plug 'andreypopp/vim-colors-plain'
 Plug 'Raimondi/delimitMate'
 Plug 'fatih/vim-go'
 Plug 'guns/vim-slamhound'
 Plug 'haya14busa/incsearch.vim'
 Plug 'jeetsukumaran/vim-filebeagle'
-Plug 'jpythonfold.vim'
+"Plug 'jpythonfold.vim'
 Plug 'junegunn/vader.vim'
 Plug 'luochen1990/rainbow'
 Plug 'scrooloose/nerdcommenter'
@@ -29,29 +30,25 @@ Plug '/home/nic/sideprojects/vim-spacey'
 Plug '/home/nic/sideprojects/template-bucket'
 Plug '/home/nic/sideprojects/vim-generate'
 Plug '/home/nic/sideprojects/vim-camelsnek'
+Plug '/home/nic/sideprojects/vim-dict'
+Plug '/home/nic/sideprojects/vim-folding'
 call plug#end()
 
 let g:filebeagle_check_gitignore = 1
 
-let g:syntastic_python_checkers = ['flake8']
-let g:syntastic_python_flake8_args='--ignore=E501,E225,E226,E265'
-let g:syntastic_go_checkers = ['go', 'golint', 'govet']
-let g:syntastic_mode_map = { 'mode': 'active' }
-let g:syntastic_elixir_checkers = ['elixir']
-let g:syntastic_enable_elixir_checker = 1
-
 let g:ale_linters = {
-      \'go': ['go build', 'golint', 'govet']
+      \'go': ['go build', 'golint', 'govet'],
       \}
 
-let g:rainbow_active = 1
+
+let g:rainbow_active = 0
 
 let g:vim_http_split_vertically = 1
 "let g:workman_insert_workman = 1
 
 
-" }}}
-" {{{ Settings
+" 
+"  Settings
 set backspace=indent,eol,start
 set hidden
 set incsearch
@@ -76,12 +73,19 @@ set nowrap
 set noswapfile
 set laststatus=2
 set clipboard=unnamed
-" }}}
-" {{{ Colors
-set background=dark
-colorscheme hybrid
-" }}}
-" {{{ Keybinds
+" 
+"  Colors
+set background=light
+colorscheme plain
+highlight SpellBad   ctermfg=15 ctermbg=1
+highlight SpellCap   ctermfg=15 ctermbg=9
+highlight SpellRare  ctermfg=15 ctermbg=10
+highlight SpellLocal ctermfg=15 ctermbg=2
+highlight CursorLine ctermfg=0  ctermbg=251
+"set background=dark
+"colorscheme hybrid
+" 
+"  Keybinds
 noremap L $
 noremap H ^
 noremap $ L
@@ -129,6 +133,7 @@ imap <C-G>ip <Plug>GenerateIPV4
 imap <C-G>ix <Plug>GenerateIPV6
 imap <C-g>uu <Plug>GenerateUUID4
 imap <C-g>dt <Plug>GenerateIso8601DateTime
+imap <C-g>dd <Plug>GenerateIso8601Date
 imap <C-g>ds <Plug>GenerateSQLDateTime
 
 nnoremap gennf :Generate first name<CR>
@@ -143,12 +148,13 @@ nnoremap genid :Generate domain<CR>
 nnoremap genip :Generate ipv4<CR>
 nnoremap genix :Generate ipv6<CR>
 nnoremap genuu :Generate uuid<CR>
-nnoremap gendt :Generate datetime<CR>
+nnoremap gendt :Generate isodatetime<CR>
+nnoremap gendd :Generate isodate<CR>
 nnoremap gends :Generate sqldatetime<CR>
 
 
-" }}}
-" {{{ Leader
+" 
+"  Leader
 let mapleader = "\<Space>"
 
 " clears search
@@ -181,9 +187,12 @@ nnoremap <leader>a <C-w>v<C-w>l:A<CR>
 
 nnoremap <leader>m :w<CR>:make test<CR>
 
-" }}}
-" {{{ Autocommands
-autocmd FileType python source ~/.vim/plugged/jpythonfold.vim/syntax/jpythonfold.vim
+nmap <leader>dd <Plug>DictDictionary
+nmap <leader>dt <Plug>DictThesaurus
+
+" 
+"  Autocommands
+"autocmd FileType python source ~/.vim/plugged/jpythonfold.vim/syntax/jpythonfold.vim
 
 autocmd Filetype html,htmldjango setlocal ts=2 sts=2 sw=2
 autocmd Filetype javascript setlocal ts=2 sts=2 sw=2
@@ -203,8 +212,8 @@ autocmd Filetype markdown,rst setlocal wm=4
 autocmd BufNewFile,BufRead *.cljx set ft=clojure
 autocmd BufNewFile,BufRead *.joke set ft=clojure
 
-" }}}
-" {{{ Commands
+" 
+"  Commands
 function! s:set_json_header() abort
   call http#set_header('Content-Type', 'application/json')
 endfunction
@@ -234,4 +243,4 @@ command! JSON call s:set_json_header()
 command! Anon call s:clean_personal_stuff()
 command! Compression call s:add_compression()
 command! Imports call s:imports()
-" }}}
+" 
