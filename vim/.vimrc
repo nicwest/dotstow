@@ -9,8 +9,7 @@ Plug 'Raimondi/delimitMate'
 Plug 'fatih/vim-go'
 Plug 'guns/vim-slamhound'
 Plug 'haya14busa/incsearch.vim'
-Plug 'jeetsukumaran/vim-filebeagle'
-"Plug 'jpythonfold.vim'
+"Plug 'jeetsukumaran/vim-filebeagle'
 Plug 'junegunn/vader.vim'
 Plug 'luochen1990/rainbow'
 Plug 'scrooloose/nerdcommenter'
@@ -20,11 +19,10 @@ Plug 'tpope/vim-scriptease'
 Plug 'tpope/vim-surround'
 Plug 'tpope/vim-repeat'
 Plug 'tpope/vim-unimpaired'
+Plug 'w0rp/ale'
 Plug 'wellle/targets.vim'
-"Plug 'w0rp/ale'
 Plug 'vim-jp/vital.vim'
 Plug '/home/nic/src/vim-filebeagle'
-Plug '/home/nic/src/ale'
 Plug '/home/nic/sideprojects/vim-http'
 Plug '/home/nic/sideprojects/vim-spacey'
 Plug '/home/nic/sideprojects/template-bucket'
@@ -32,16 +30,17 @@ Plug '/home/nic/sideprojects/vim-generate'
 Plug '/home/nic/sideprojects/vim-camelsnek'
 Plug '/home/nic/sideprojects/vim-dict'
 Plug '/home/nic/sideprojects/vim-folding'
+Plug '/home/nic/sideprojects/vim-pipsearch'
 call plug#end()
 
 let g:filebeagle_check_gitignore = 1
 
 let g:ale_linters = {
       \'go': ['go build', 'golint', 'govet'],
-      \}
+      \ }
 
 
-let g:rainbow_active = 0
+let g:rainbow_active = 1
 
 let g:vim_http_split_vertically = 1
 "let g:workman_insert_workman = 1
@@ -116,9 +115,6 @@ nnoremap cx xp
 
 nnoremap <c-b> :buffers<CR>:b 
 
-imap <C-_> <Plug>spacey-underscore
-imap <C--> <Plug>spacey-hyphen
-imap <C-space> <Plug>spacey-clear
 
 imap <C-g>nf <Plug>GenerateFirstName
 imap <C-g>ny <Plug>GenerateFirstMaleName
@@ -135,6 +131,7 @@ imap <C-g>uu <Plug>GenerateUUID4
 imap <C-g>dt <Plug>GenerateIso8601DateTime
 imap <C-g>dd <Plug>GenerateIso8601Date
 imap <C-g>ds <Plug>GenerateSQLDateTime
+imap <C-g>ut <Plug>GenerateUNIXTime
 
 nnoremap gennf :Generate first name<CR>
 nnoremap genny :Generate first male name<CR>
@@ -151,6 +148,7 @@ nnoremap genuu :Generate uuid<CR>
 nnoremap gendt :Generate isodatetime<CR>
 nnoremap gendd :Generate isodate<CR>
 nnoremap gends :Generate sqldatetime<CR>
+nnoremap genut :Generate unixtime<CR>
 
 
 " 
@@ -189,6 +187,9 @@ nnoremap <leader>m :w<CR>:make test<CR>
 
 nmap <leader>dd <Plug>DictDictionary
 nmap <leader>dt <Plug>DictThesaurus
+
+nmap <leader>qa A  # noqa
+nmap <leader>bh :Behave<CR>
 
 " 
 "  Autocommands
@@ -243,4 +244,4 @@ command! JSON call s:set_json_header()
 command! Anon call s:clean_personal_stuff()
 command! Compression call s:add_compression()
 command! Imports call s:imports()
-" 
+command! Behave execute "norm! yypV:Snek\<CR>Idef \<ESC>A(context):"

@@ -1,4 +1,4 @@
-set $mod Mod4 
+set $mod Mod4
 font pango:Ubunutu 10
 
 new_window pixel 1

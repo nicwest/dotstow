@@ -2,7 +2,7 @@
 
 userresources=$HOME/.Xresources
 usermodmap=$HOME/.Xmodmap
-userprofile=$HOME/.xprofile
+userprofile=$HOME/.xprofile.sh
 fehbg=$HOME/.fehbg
 sysresources=/etc/X11/xinit/.Xresources
 sysmodmap=/etc/X11/xinit/.Xmodmap
