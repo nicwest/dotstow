@@ -11,6 +11,7 @@ Plug 'guns/vim-slamhound'
 Plug 'haya14busa/incsearch.vim'
 "Plug 'jeetsukumaran/vim-filebeagle'
 Plug 'junegunn/vader.vim'
+Plug 'leafgarland/typescript-vim'
 Plug 'luochen1990/rainbow'
 Plug 'scrooloose/nerdcommenter'
 Plug 'tpope/vim-fireplace'
@@ -37,7 +38,13 @@ let g:filebeagle_check_gitignore = 1
 
 let g:ale_linters = {
       \'go': ['go build', 'golint', 'govet'],
+      \'typescript': ['tslint', 'prettier'],
       \ }
+
+let g:ale_fixers = {
+      \'typescript': ['prettier'],
+      \ }
+let g:ale_fix_on_save = 1
 
 
 let g:rainbow_active = 1

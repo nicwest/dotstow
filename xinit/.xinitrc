@@ -54,4 +54,6 @@ autocutsel -selection PRIMARY -fork &
 setxkbmap gb
 setxkbmap -option caps:escape
 
+xautolock -time 5 -locker i3lock -notify 20 -notifier 'dunstify -a i3lock "locking in 20 seconds"' &
+
 exec i3
