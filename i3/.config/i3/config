@@ -8,7 +8,7 @@ floating_modifier $mod
 
 bindsym $mod+Return exec alacritty
 bindsym $mod+Shift+q kill
-bindsym $mod+d exec dmenu_run
+bindsym $mod+d exec "rofi -modi combi -combi-modi run,drun -show combi"
 
 bindsym $mod+h focus left
 bindsym $mod+j focus down

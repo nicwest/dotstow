@@ -1,3 +1,3 @@
 function here
-	termite -d $PWD &; disown
+	alacritty -e "cd $PWD" &; disown
 end

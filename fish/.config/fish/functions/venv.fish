@@ -1,3 +1,3 @@
 function venv
-	python -m venv $argv
+	python3 -m venv $argv
 end

@@ -4,7 +4,6 @@ syntax on
 
 "  Plugins 
 call plug#begin('~/.vim/plugged')
-Plug 'andreypopp/vim-colors-plain'
 Plug 'Raimondi/delimitMate'
 Plug 'fatih/vim-go'
 Plug 'guns/vim-slamhound'
@@ -23,15 +22,11 @@ Plug 'tpope/vim-unimpaired'
 Plug 'w0rp/ale'
 Plug 'wellle/targets.vim'
 Plug 'vim-jp/vital.vim'
-"Plug '/home/nic/src/vim-filebeagle'
-Plug '/home/nic/sideprojects/vim-http'
-Plug '/home/nic/sideprojects/vim-spacey'
-Plug '/home/nic/sideprojects/template-bucket'
-Plug '/home/nic/sideprojects/vim-generate'
-Plug '/home/nic/sideprojects/vim-camelsnek'
-Plug '/home/nic/sideprojects/vim-dict'
-Plug '/home/nic/sideprojects/vim-folding'
-Plug '/home/nic/sideprojects/vim-pipsearch'
+
+Plug '/home/nic.west/sideprojects/vim-http'
+Plug '/home/nic.west/sideprojects/vim-generate'
+Plug '/home/nic.west/sideprojects/vim-camelsnek'
+Plug '/home/nic.west/sideprojects/vim-workman'
 call plug#end()
 
 let g:filebeagle_check_gitignore = 1
@@ -48,10 +43,11 @@ let g:ale_fix_on_save = 1
 
 
 let g:rainbow_active = 1
+let g:ale_python_flake8_executable = 'python3'
+let g:ale_python_flake8_options = '-m flake8'
 
 let g:vim_http_split_vertically = 1
 "let g:workman_insert_workman = 1
-
 
 " 
 "  Settings
@@ -119,9 +115,6 @@ nnoremap x "_x
 xnoremap x "_x
 
 nnoremap cx xp 
-
-nnoremap <c-b> :buffers<CR>:b 
-
 
 imap <C-g>nf <Plug>GenerateFirstName
 imap <C-g>ny <Plug>GenerateFirstMaleName
@@ -209,6 +202,7 @@ autocmd Filetype vim setlocal ts=2 sts=2 sw=2
 autocmd Filetype yaml,yml setlocal ts=2 sts=2 sw=2
 autocmd Filetype ruby setlocal ts=2 sts=2 sw=2
 autocmd FileType objc,objcpp setlocal noexpandtab ts=8 sts=8 sw=8  
+autocmd FileType typescriptreact setlocal tw=120 cc=120
 
 
 autocmd BufRead *.md setlocal spell spelllang=en_gb
