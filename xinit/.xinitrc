@@ -6,6 +6,11 @@ userprofile=$HOME/.xprofile
 fehbg=$HOME/.fehbg
 sysresources=/etc/X11/xinit/.Xresources
 sysmodmap=/etc/X11/xinit/.Xmodmap
+fehbg=$HOME/.fehbg
+
+if [ -f "$fehbg" ]; then
+    source "$fehbg"
+fi
 
 # merge in defaults and keymaps
 
