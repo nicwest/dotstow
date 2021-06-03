@@ -27,6 +27,7 @@ Plug '/home/nic.west/sideprojects/vim-http'
 Plug '/home/nic.west/sideprojects/vim-generate'
 Plug '/home/nic.west/sideprojects/vim-camelsnek'
 Plug '/home/nic.west/sideprojects/vim-workman'
+Plug '/home/nic.west/sideprojects/vim-loot'
 call plug#end()
 
 let g:filebeagle_check_gitignore = 1
