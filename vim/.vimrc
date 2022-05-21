@@ -5,40 +5,35 @@ syntax on
 "  Plugins 
 call plug#begin('~/.vim/plugged')
 Plug 'Raimondi/delimitMate'
-Plug 'fatih/vim-go'
-Plug 'guns/vim-slamhound'
+Plug 'hashivim/vim-terraform'
 Plug 'haya14busa/incsearch.vim'
 Plug 'jeetsukumaran/vim-filebeagle'
-Plug 'junegunn/vader.vim'
-Plug 'leafgarland/typescript-vim'
 Plug 'luochen1990/rainbow'
 Plug 'scrooloose/nerdcommenter'
-Plug 'tpope/vim-fireplace'
-Plug 'tpope/vim-projectionist'
-Plug 'tpope/vim-scriptease'
 Plug 'tpope/vim-surround'
 Plug 'tpope/vim-repeat'
-Plug 'tpope/vim-unimpaired'
 Plug 'w0rp/ale'
 Plug 'wellle/targets.vim'
-Plug 'vim-jp/vital.vim'
 
-Plug '/home/nic.west/sideprojects/vim-http'
-Plug '/home/nic.west/sideprojects/vim-generate'
-Plug '/home/nic.west/sideprojects/vim-camelsnek'
-Plug '/home/nic.west/sideprojects/vim-workman'
-Plug '/home/nic.west/sideprojects/vim-loot'
+Plug '/Users/nic.west/sideprojects/vim-http'
+"Plug '/home/nic.west/sideprojects/vim-generate'
+"Plug '/home/nic.west/sideprojects/vim-camelsnek'
+"Plug '/home/nic.west/sideprojects/vim-workman'
+"Plug '/home/nic.west/sideprojects/vim-loot'
 call plug#end()
 
 let g:filebeagle_check_gitignore = 1
 
 let g:ale_linters = {
       \'go': ['go build', 'golint', 'govet'],
-      \'typescript': ['tslint', 'prettier'],
+      \'typescript': ['tslint'],
+      \'javascript': ['eslint'],
       \ }
 
 let g:ale_fixers = {
       \'typescript': ['prettier'],
+      \'javascript': ['prettier'],
+      \'terraform': ['terraform'],
       \ }
 let g:ale_fix_on_save = 1
 
