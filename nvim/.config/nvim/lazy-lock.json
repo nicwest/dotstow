@@ -1,0 +1,13 @@
+{
+  "ALE": { "branch": "master", "commit": "53b01d6a546384a28f1ccbed41baae58d7341da4" },
+  "autoclose": { "branch": "main", "commit": "37e11589aac55b0e8810dc5865f898f9cb36fef6" },
+  "catppuccin": { "branch": "main", "commit": "3d9a5ed556e289bce6c1fb0af89ec838360641b2" },
+  "comment": { "branch": "master", "commit": "0236521ea582747b58869cb72f70ccfa967d2e89" },
+  "conjure": { "branch": "master", "commit": "58c46d1f4999679659a5918284b574c266a7ac83" },
+  "lazy.nvim": { "branch": "main", "commit": "7ca3bdb566c3ba4492f2d22b37c2c9e26f09470f" },
+  "nvim-surround": { "branch": "main", "commit": "0d6882635817a2677749a330127d12ac30a4f3c8" },
+  "oil": { "branch": "master", "commit": "96a334abeb85a26af87585ec3810116c7cb7d172" },
+  "rainbow-delimiters": { "branch": "master", "commit": "6b9fc617ad52f25372d1855e049cae3af348bc09" },
+  "targets": { "branch": "master", "commit": "642d3a4ce306264b05ea3219920b13ea80931767" },
+  "treesitter": { "branch": "master", "commit": "cb139d880bcf9b3a6f29f2bd088a7491d1662918" }
+}

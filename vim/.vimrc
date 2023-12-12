@@ -15,9 +15,9 @@ Plug 'tpope/vim-repeat'
 Plug 'w0rp/ale'
 Plug 'wellle/targets.vim'
 
-Plug '/Users/nic.west/sideprojects/vim-http'
-Plug '/home/nic.west/sideprojects/vim-generate'
-Plug '/home/nic.west/sideprojects/vim-camelsnek'
+Plug '/Users/nicwest/sideprojects/vim-http'
+Plug '/Users/nicwest/sideprojects/vim-generate'
+Plug '/Users/nicwest/sideprojects/vim-camelsnek'
 call plug#end()
 
 let g:filebeagle_check_gitignore = 1
@@ -29,8 +29,8 @@ let g:ale_linters = {
       \ }
 
 let g:ale_fixers = {
-      \'typescript': ['prettier'],
-      \'javascript': ['prettier'],
+      \'typescript': ['eslint'],
+      \'javascript': ['eslint'],
       \'terraform': ['terraform'],
       \ }
 let g:ale_fix_on_save = 1
