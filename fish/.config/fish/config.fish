@@ -1,6 +1,6 @@
 
 set -x PATH $HOME/bin $HOME/.local/bin $HOME/go/bin $HOME/.cargo/bin /snap/bin $PATH 
-set -x EDITOR vim
+set -x EDITOR nvim
 set -x GOPATH ~/go
 set -x TERM 'xterm-256color'
 set -x LANG en_GB.UTF-8

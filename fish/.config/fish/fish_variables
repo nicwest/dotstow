@@ -33,4 +33,4 @@ SETUVAR fish_pager_color_description:B3A06D\x1eyellow
 SETUVAR fish_pager_color_prefix:white\x1e\x2d\x2dbold\x1e\x2d\x2dunderline
 SETUVAR fish_pager_color_progress:brwhite\x1e\x2d\x2dbackground\x3dcyan
 SETUVAR fish_pager_color_selected_background:\x2dr
-SETUVAR fish_user_paths:/opt/homebrew/opt/openjdk/bin\x1e/opt/homebrew/opt/mysql\x2dclient/bin\x1e/opt/homebrew/opt/libpq/bin\x1e/Users/nic\x2ewest/bin\x1e/opt/homebrew/bin
+SETUVAR fish_user_paths:/opt/homebrew/opt/arm\x2dnone\x2deabi\x2dgcc\x408/bin\x1e/opt/homebrew/opt/arm\x2dnone\x2deabi\x2dbinutils/bin\x1e/opt/homebrew/opt/avr\x2dgcc\x408/bin\x1e/Users/nicwest/\x2ecargo/bin\x1e/opt/homebrew/opt/openjdk/bin\x1e/opt/homebrew/opt/mysql\x2dclient/bin\x1e/opt/homebrew/opt/libpq/bin\x1e/Users/nic\x2ewest/bin\x1e/opt/homebrew/bin

@@ -12,6 +12,7 @@ if not vim.loop.fs_stat(lazypath) then
 end
 vim.opt.rtp:prepend(lazypath)
 
+vim.g["conjure#filetypes"] = {"clojure"}
 require("lazy").setup({
     { "catppuccin/nvim", name = "catppuccin", priority = 1000 },
     { "Olical/conjure", name = 'conjure' },
@@ -98,17 +99,24 @@ vim.keymap.set('n', '<space>sa', 'zg')
 vim.keymap.set('n', '<space>ss', 'z=')
 vim.keymap.set('n', '<space>sg', '1z=')
 
-vim.g.ale_linters = {['clojure']={ 'clj-kondo' }}
+vim.g.ale_linters = {
+    ['clojure']={ 'clj-kondo' }
+}
+vim.g.ale_fixers = {
+    ['rust']={'rustfmt'}
+}
+vim.g.ale_fix_on_save = 1
 vim.g.ale_pattern_options = {['conjure-log.*.cljc']={['ale_enabled'] = 0}}
 vim.keymap.set('n', '[w', '<Plug>(ale_previous_wrap)')
 vim.keymap.set('n', ']w', '<Plug>(ale_next_wrap)')
 
+
 require("oil").setup()
 require'nvim-treesitter.configs'.setup {
   -- A list of parser names, or "all" (the five listed parsers should always be installed)
-  ensure_installed = { "clojure", "lua"},
+  ensure_installed = { "clojure", "lua", "python", "go", "rust"},
   sync_install = false,
-  auto_install = false,
+  auto_install = true,
   highlight = {
     enable = true,
     additional_vim_regex_highlighting = false,
