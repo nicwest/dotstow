@@ -1,13 +1,16 @@
 {
-  "ALE": { "branch": "master", "commit": "53b01d6a546384a28f1ccbed41baae58d7341da4" },
-  "autoclose": { "branch": "main", "commit": "37e11589aac55b0e8810dc5865f898f9cb36fef6" },
-  "catppuccin": { "branch": "main", "commit": "3d9a5ed556e289bce6c1fb0af89ec838360641b2" },
-  "comment": { "branch": "master", "commit": "0236521ea582747b58869cb72f70ccfa967d2e89" },
-  "conjure": { "branch": "master", "commit": "58c46d1f4999679659a5918284b574c266a7ac83" },
-  "lazy.nvim": { "branch": "main", "commit": "7ca3bdb566c3ba4492f2d22b37c2c9e26f09470f" },
-  "nvim-surround": { "branch": "main", "commit": "0d6882635817a2677749a330127d12ac30a4f3c8" },
-  "oil": { "branch": "master", "commit": "96a334abeb85a26af87585ec3810116c7cb7d172" },
-  "rainbow-delimiters": { "branch": "master", "commit": "6b9fc617ad52f25372d1855e049cae3af348bc09" },
-  "targets": { "branch": "master", "commit": "642d3a4ce306264b05ea3219920b13ea80931767" },
-  "treesitter": { "branch": "master", "commit": "cb139d880bcf9b3a6f29f2bd088a7491d1662918" }
+  "autoclose": { "branch": "main", "commit": "b2077aa2c83df7ebc19b2a20a3a0654b24ae9c8f" },
+  "catppuccin": { "branch": "main", "commit": "637d99e638bc6f1efedac582f6ccab08badac0c6" },
+  "comment": { "branch": "master", "commit": "e30b7f2008e52442154b66f7c519bfd2f1e32acb" },
+  "conjure": { "branch": "main", "commit": "bb42e182ba13980bc496c049476ae82a2b2e756d" },
+  "git-blame": { "branch": "master", "commit": "2883a7460f611c2705b23f12d58d398d5ce6ec00" },
+  "lazy.nvim": { "branch": "main", "commit": "56ead98e05bb37a4ec28930a54d836d033cf00f2" },
+  "lspconfig": { "branch": "master", "commit": "c646154d6e4db9b2979eeb517d0b817ad00c9c47" },
+  "nvim-surround": { "branch": "main", "commit": "ec2dc7671067e0086cdf29c2f5df2dd909d5f71f" },
+  "oil": { "branch": "master", "commit": "5fa528f5528bf04a2d255108e59ed9cf53e85ae6" },
+  "plenary.nvim": { "branch": "master", "commit": "2d9b06177a975543726ce5c73fca176cedbffe9d" },
+  "targets": { "branch": "master", "commit": "6325416da8f89992b005db3e4517aaef0242602e" },
+  "telescope-live-grep-args.nvim": { "branch": "master", "commit": "649b662a8f476fd2c0289570764459e95ebaa3f3" },
+  "telescope.nvim": { "branch": "master", "commit": "a0bbec21143c7bc5f8bb02e0005fa0b982edc026" },
+  "treesitter": { "branch": "master", "commit": "2d816bb49e3c9c919b5113f6fb3cfe13e589652d" }
 }

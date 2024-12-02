@@ -1,4 +1,3 @@
-
 local lazypath = vim.fn.stdpath("data") .. "/lazy/lazy.nvim"
 if not vim.loop.fs_stat(lazypath) then
   vim.fn.system({
@@ -15,24 +14,51 @@ vim.opt.rtp:prepend(lazypath)
 vim.g["conjure#filetypes"] = {"clojure"}
 require("lazy").setup({
     { "catppuccin/nvim", name = "catppuccin", priority = 1000 },
+    { "neovim/nvim-lspconfig", name='lspconfig'},
     { "Olical/conjure", name = 'conjure' },
-    { "dense-analysis/ale", name ='ALE' },
+--    { "dense-analysis/ale", name ='ALE' },
     {
         "kylechui/nvim-surround",
         version = "*", -- Use for stability; omit to use `main` branch for the latest features
         event = "VeryLazy",
         config = function()
-            require("nvim-surround").setup({
-                -- Configuration here, or leave empty to use defaults
-            })
-        end
+            require("nvim-surround").setup()
+        end,
     },
     { "stevearc/oil.nvim", name ='oil' },
     { "wellle/targets.vim", name='targets' },
     { "nvim-treesitter/nvim-treesitter", name='treesitter'},
-    { "HiPhish/rainbow-delimiters.nvim", name='rainbow-delimiters'},
+--    { "HiPhish/rainbow-delimiters.nvim", name='rainbow-delimiters'},
     { "m4xshen/autoclose.nvim", name='autoclose'},
     { "numToStr/Comment.nvim", lazy = false, name = 'comment'},
+    { "nvim-telescope/telescope.nvim",
+        tag = "0.1.8",
+        event = "VeryLazy",
+        dependencies = {
+            "nvim-lua/plenary.nvim",
+            "nvim-telescope/telescope-live-grep-args.nvim",
+        },
+        config = function()
+            local telescope = require("telescope")
+            local builtin = require("telescope.builtin")
+            telescope.setup({})
+            telescope.load_extension("live_grep_args")
+ 
+            vim.keymap.set('n', '<leader>fr', builtin.resume, {})
+            vim.keymap.set('n', '<leader>ff', builtin.find_files, {})
+            vim.keymap.set('n', '<leader>fg', telescope.extensions.live_grep_args.live_grep_args, {})
+            vim.keymap.set('n', '<leader>fb', builtin.buffers, {})
+            vim.keymap.set('n', '<leader>fh', builtin.help_tags, {})
+        end
+    },
+    { "f-person/git-blame.nvim", name='git-blame',
+        opts = {
+            enabled = false,
+            message_template = "<date> • <author> • <<sha>> • <summary>",
+            date_format = "%Y-%m-%d %H:%M",
+            virtual_text_column = 1,
+        }
+    },
 })
 
 vim.cmd.colorscheme "catppuccin"
@@ -59,13 +85,25 @@ vim.opt.hlsearch = true
 vim.opt.wrap = false
 vim.opt.swapfile = false
 vim.opt.laststatus=2
-vim.opt.clipboard='unnamed'
+vim.opt.clipboard='unnamedplus'
 vim.opt.spelllang='en_gb'
 vim.opt.mouse = ""
 
 
 vim.g.mapleader = ' ' 
 vim.g.maplocalleader = ' ' 
+vim.g.clipboard = {
+    ['name']='WSL',
+    ['copy']={
+        ['+'] = {'win32yank.exe', '-i'},
+        ['*'] = {'win32yank.exe', '-i'},
+    },
+    ['paste']={
+        ['+'] = {'win32yank.exe', '-o'},
+        ['*'] = {'win32yank.exe', '-o'},
+    }
+}
+
 vim.keymap.set("n", "-", "<CMD>Oil<CR>", { desc = "Open parent directory" })
 vim.keymap.set({'n', 'v'}, 'L', '$')
 vim.keymap.set({'n', 'v'}, 'H', '^')
@@ -98,18 +136,23 @@ vim.keymap.set('n', '<space>so', ':setlocal spell!<cr>')
 vim.keymap.set('n', '<space>sa', 'zg')
 vim.keymap.set('n', '<space>ss', 'z=')
 vim.keymap.set('n', '<space>sg', '1z=')
+vim.keymap.set('n', '<space>gb', ':GitBlameToggle<cr>')
+
+vim.keymap.set('n', 'grn', ':lua vim.lsp.buf.rename()<CR>')
+vim.keymap.set('n', 'grr', ':lua vim.lsp.buf.references()<CR>')
+vim.keymap.set('n', '<space>e', ':lua vim.diagnostic.open_float(0, {scope="line"})<CR>')
 
 vim.g.ale_linters = {
-    ['clojure']={ 'clj-kondo' }
+    ['clojure']={ 'clj-kondo' },
+    ['python']={'pyright'},
 }
 vim.g.ale_fixers = {
-    ['rust']={'rustfmt'}
+    ['rust']={'rustfmt'},
 }
 vim.g.ale_fix_on_save = 1
 vim.g.ale_pattern_options = {['conjure-log.*.cljc']={['ale_enabled'] = 0}}
-vim.keymap.set('n', '[w', '<Plug>(ale_previous_wrap)')
-vim.keymap.set('n', ']w', '<Plug>(ale_next_wrap)')
-
+-- vim.keymap.set('n', '[w', '<Plug>(ale_previous_wrap)')
+-- vim.keymap.set('n', ']w', '<Plug>(ale_next_wrap)')
 
 require("oil").setup()
 require'nvim-treesitter.configs'.setup {
@@ -123,26 +166,30 @@ require'nvim-treesitter.configs'.setup {
   },
 }
 
-local rainbow_delimiters = require 'rainbow-delimiters'
-
-vim.g.rainbow_delimiters = {
-    strategy = {
-        [''] = rainbow_delimiters.strategy['global'],
-    },
-    query = {
-        [''] = 'rainbow-delimiters',
-        lua = 'rainbow-blocks',
-    },
- -- highlight = {
- --     'RainbowDelimiterRed',
- --     'RainbowDelimiterYellow',
- --     'RainbowDelimiterBlue',
- --     'RainbowDelimiterOrange',
- --     'RainbowDelimiterGreen',
- --     'RainbowDelimiterViolet',
- --     'RainbowDelimiterCyan',
- -- },
-}
+-- local rainbow_delimiters = require 'rainbow-delimiters'
+--
+-- vim.g.rainbow_delimiters = {
+--     strategy = {
+--         [''] = rainbow_delimiters.strategy['global'],
+--         make = rainbow_delimiters.strategy['noop'],
+--     },
+--     query = {
+--         [''] = 'rainbow-delimiters',
+--         lua = 'rainbow-blocks',
+--     },
+--  -- highlight = {
+--  --     'RainbowDelimiterRed',
+--  --     'RainbowDelimiterYellow',
+--  --     'RainbowDelimiterBlue',
+--  --     'RainbowDelimiterOrange',
+--  --     'RainbowDelimiterGreen',
+--  --     'RainbowDelimiterViolet',
+--  --     'RainbowDelimiterCyan',
+--  -- },
+-- }
 require("autoclose").setup()
 require("Comment").setup()
+require("lspconfig").pyright.setup{}
 
+
+vim.cmd("source /home/nic/.config/nvim/pydiff.vim")
