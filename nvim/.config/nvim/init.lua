@@ -59,6 +59,11 @@ require("lazy").setup({
             virtual_text_column = 1,
         }
     },
+
+    -- {
+    --     'nvim-lualine/lualine.nvim',
+    --     dependencies = { 'nvim-tree/nvim-web-devicons' }
+    -- },
 })
 
 vim.cmd.colorscheme "catppuccin"
@@ -84,7 +89,6 @@ vim.opt.showmatch = true
 vim.opt.hlsearch = true
 vim.opt.wrap = false
 vim.opt.swapfile = false
-vim.opt.laststatus=2
 vim.opt.clipboard='unnamedplus'
 vim.opt.spelllang='en_gb'
 vim.opt.mouse = ""
@@ -137,19 +141,22 @@ vim.keymap.set('n', '<space>sa', 'zg')
 vim.keymap.set('n', '<space>ss', 'z=')
 vim.keymap.set('n', '<space>sg', '1z=')
 vim.keymap.set('n', '<space>gb', ':GitBlameToggle<cr>')
+vim.keymap.set('n', '<space>uu', ':r!uuidgen<cr>')
 
 vim.keymap.set('n', 'grn', ':lua vim.lsp.buf.rename()<CR>')
 vim.keymap.set('n', 'grr', ':lua vim.lsp.buf.references()<CR>')
 vim.keymap.set('n', '<space>e', ':lua vim.diagnostic.open_float(0, {scope="line"})<CR>')
+vim.keymap.set("n", "]g", vim.diagnostic.goto_next)
+vim.keymap.set("n", "[g", vim.diagnostic.goto_prev)
 
 vim.g.ale_linters = {
     ['clojure']={ 'clj-kondo' },
     ['python']={'pyright'},
 }
-vim.g.ale_fixers = {
-    ['rust']={'rustfmt'},
-}
-vim.g.ale_fix_on_save = 1
+-- vim.g.ale_fixers = {
+--     ['rust']={'rustfmt'},
+-- }
+-- vim.g.ale_fix_on_save = 1
 vim.g.ale_pattern_options = {['conjure-log.*.cljc']={['ale_enabled'] = 0}}
 -- vim.keymap.set('n', '[w', '<Plug>(ale_previous_wrap)')
 -- vim.keymap.set('n', ']w', '<Plug>(ale_next_wrap)')
@@ -157,8 +164,8 @@ vim.g.ale_pattern_options = {['conjure-log.*.cljc']={['ale_enabled'] = 0}}
 require("oil").setup()
 require'nvim-treesitter.configs'.setup {
   -- A list of parser names, or "all" (the five listed parsers should always be installed)
-  ensure_installed = { "clojure", "lua", "python", "go", "rust"},
-  sync_install = false,
+  ensure_installed = { "clojure", "lua", "python", "go"},
+  sync_install = true,
   auto_install = true,
   highlight = {
     enable = true,
@@ -190,6 +197,7 @@ require'nvim-treesitter.configs'.setup {
 require("autoclose").setup()
 require("Comment").setup()
 require("lspconfig").pyright.setup{}
+-- require("lualine").setup()
 
 
 vim.cmd("source /home/nic/.config/nvim/pydiff.vim")
