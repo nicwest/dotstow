@@ -10,12 +10,11 @@ if not vim.loop.fs_stat(lazypath) then
   })
 end
 vim.opt.rtp:prepend(lazypath)
-
-vim.g["conjure#filetypes"] = {"clojure"}
+-- vim.g["conjure#filetypes"] = {"clojure"}
 require("lazy").setup({
     { "catppuccin/nvim", name = "catppuccin", priority = 1000 },
     { "neovim/nvim-lspconfig", name='lspconfig'},
-    { "Olical/conjure", name = 'conjure' },
+    -- { "Olical/conjure", name = 'conjure' },
 --    { "dense-analysis/ale", name ='ALE' },
     {
         "kylechui/nvim-surround",
@@ -108,6 +107,31 @@ vim.g.clipboard = {
     }
 }
 
+local function jump_to_alternate(pattern, replacement)
+  local current_file = vim.api.nvim_buf_get_name(0)
+  if current_file == nil or current_file == '' then
+    print("Not a valid file buffer.")
+    return
+  end
+  local new_file = current_file:gsub(pattern, replacement)
+
+  if new_file == current_file then
+    print("Could not find '" .. pattern .. "' pattern in file path: " .. current_file)
+    return
+  end
+
+  vim.cmd('e ' .. new_file)
+end
+
+local function jump_to_test()
+  jump_to_alternate('src/(.*/)([^/]+)$', 'tests/%1test_%2')
+end
+
+local function jump_to_src()
+  jump_to_alternate('tests/(.*)test_(.*)$', 'src/%1%2')
+end
+
+
 vim.keymap.set("n", "-", "<CMD>Oil<CR>", { desc = "Open parent directory" })
 vim.keymap.set({'n', 'v'}, 'L', '$')
 vim.keymap.set({'n', 'v'}, 'H', '^')
@@ -149,15 +173,20 @@ vim.keymap.set('n', '<space>e', ':lua vim.diagnostic.open_float(0, {scope="line"
 vim.keymap.set("n", "]g", vim.diagnostic.goto_next)
 vim.keymap.set("n", "[g", vim.diagnostic.goto_prev)
 
-vim.g.ale_linters = {
-    ['clojure']={ 'clj-kondo' },
-    ['python']={'pyright'},
-}
+vim.keymap.set("n", 'gtt', jump_to_test)
+vim.keymap.set("n", 'gts', jump_to_src)
+
+
+
+-- vim.g.ale_linters = {
+--     -- ['clojure']={ 'clj-kondo' },
+--     -- ['python']={'pyrefly'},
+-- }
 -- vim.g.ale_fixers = {
 --     ['rust']={'rustfmt'},
 -- }
 -- vim.g.ale_fix_on_save = 1
-vim.g.ale_pattern_options = {['conjure-log.*.cljc']={['ale_enabled'] = 0}}
+-- vim.g.ale_pattern_options = {['conjure-log.*.cljc']={['ale_enabled'] = 0}}
 -- vim.keymap.set('n', '[w', '<Plug>(ale_previous_wrap)')
 -- vim.keymap.set('n', ']w', '<Plug>(ale_next_wrap)')
 
@@ -196,8 +225,10 @@ require'nvim-treesitter.configs'.setup {
 -- }
 require("autoclose").setup()
 require("Comment").setup()
-require("lspconfig").pyright.setup{}
+require("lspconfig").pyrefly.setup{}
+-- require("lspconfig").pyrefly.setup{}
 -- require("lualine").setup()
+-- vim.lsp.enable('pyrefly')
 
 
-vim.cmd("source /home/nic/.config/nvim/pydiff.vim")
+-- vim.cmd("source /home/nic/.config/nvim/pydiff.vim")
